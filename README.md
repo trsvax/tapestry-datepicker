@@ -29,8 +29,6 @@ It's also possible to add Translators. Here are the included ones:
 
 	public static void contributeTranslatorSource(MappedConfiguration<Class, Translator> configuration){
 		configuration.add(Date.class, new DateTranslator("MM-dd-yyyy","mm/dd/yy","data-date-format","date"));
-		configuration.add(Timestamp.class, new TimestampTranslator("MM/dd/yyyy","data-date-format","timestamp"));
-		configuration.add(Calendar.class, new CalendarTranslator("MM/dd/yyyy","data-date-format","calendar"));
 	}
 	
 	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration){
