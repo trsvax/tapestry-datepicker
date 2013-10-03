@@ -30,11 +30,7 @@ public class JQueryDatePIcker {
 	
 	@BeginRender
 	void beginRender(MarkupWriter writer) {		
-		writer.getElement().forceAttributes("type","date");	
-		writer.getElement().attribute("data-provider", "datepicker");
-		
-		final JSONObject jsonObject = new JSONObject("id", clientElement.getClientId());
-		
-		javaScriptSupport.require("datepicker/datepicker").with(jsonObject);
+		writer.getElement().forceAttributes("type","date");			
+		javaScriptSupport.require("datepicker/datepicker").with(new JSONObject("id", clientElement.getClientId()));
 	}
 }
