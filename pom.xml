@@ -134,7 +134,7 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Tapestry-Module-Classes>com.trsvax.datepicker.services.DatepickerModule</Tapestry-Module-Classes>
+                            <Tapestry-Module-Classes>com.trsvax.datepicker.services.DatePickerModule</Tapestry-Module-Classes>
                         </manifestEntries>
                     </archive>
                 </configuration>

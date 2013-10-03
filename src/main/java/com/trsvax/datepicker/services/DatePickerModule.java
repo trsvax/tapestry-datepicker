@@ -16,22 +16,22 @@ import com.trsvax.datepicker.translators.CalendarTranslator;
 import com.trsvax.datepicker.translators.DateTranslator;
 import com.trsvax.datepicker.translators.TimestampTranslator;
 
-public class DateFieldModule {
+public class DatePickerModule {
 	
 	public static void contributeTranslatorSource(MappedConfiguration<Class, Translator> configuration){
-		configuration.add(Date.class, new DateTranslator("MM/dd/yyyy","date-format","date"));
-		configuration.add(Timestamp.class, new TimestampTranslator("MM/dd/yyyy","date-format","timestamp"));
-		configuration.add(Calendar.class, new CalendarTranslator("MM/dd/yyyy","date-format","calendar"));
+		configuration.add(Date.class, new DateTranslator("MM/dd/yyyy","mm/dd/yy","data-date-format","date"));
+		configuration.add(Timestamp.class, new TimestampTranslator("MM/dd/yyyy","data-date-format","timestamp"));
+		configuration.add(Calendar.class, new CalendarTranslator("MM/dd/yyyy","data-date-format","calendar"));
 	}
 	
 	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration){
 		
-		Translator<?> translator = new DateTranslator("MM-dd-yyyy","date-format","date");
+		Translator<?> translator = new DateTranslator("MM-dd-yyyy","mm-dd-yy","date-format","date");
 		configuration.add(translator.getName(), translator);
 	}
 	
     public static void contributeComponentClassResolver(Configuration<LibraryMapping> configuration) {		
-    	configuration.add(new LibraryMapping("datefield", "gov.texas.dps.les.datefield"));	
+    	configuration.add(new LibraryMapping("datefield", "com.trsvax.datepicker"));	
     	
     }
     

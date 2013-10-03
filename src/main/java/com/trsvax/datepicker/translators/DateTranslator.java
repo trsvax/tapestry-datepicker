@@ -17,11 +17,13 @@ public class DateTranslator extends AbstractTranslator<Date> {
 
 	private final String formatString;
 	private final String dataName;
+	private final String clientFormat;
 	
-	public DateTranslator(String format,String dataName, String messageKey) {
+	public DateTranslator(String format, String clientFormat ,String dataName, String messageKey) {
 		super("DateFormat(" + format + ")",Date.class,messageKey);
 		formatString = format;
 		this.dataName = dataName;
+		this.clientFormat = clientFormat;
 	}
 
 	public String toClient(Date value) {
@@ -43,7 +45,7 @@ public class DateTranslator extends AbstractTranslator<Date> {
 	}
 
 	public void render(Field field, String message, MarkupWriter writer, FormSupport formSupport) {
-		writer.attributes(dataName,formatString);
+		writer.attributes(dataName,clientFormat);
 	}		
 }
 
