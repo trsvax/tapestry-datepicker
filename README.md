@@ -3,7 +3,7 @@ tapestry-datepicker
 
 Alternative for Tapestry 5.4 Datapicker.
 
-The alternative datepicker works by adding a date translator to any property with a type of date. This restricts 
+The alternative datepicker works by adding a date translator to any textfield with a type of date. This restricts 
 input to a valid date. The other piece is a mixin that provides the client side datapicker. Currently the JQuery
 datepicker is supported. Datepicker options are provied by data- attributes.
 
