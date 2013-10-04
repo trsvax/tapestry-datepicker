@@ -35,7 +35,7 @@ public class DatePickerModule {
     	
     }
     
-	public static void contributeBeanBlockSource(Configuration<BeanBlockContribution> configuration) {
+	public static void contributeBeanBlockOverrideSource(Configuration<BeanBlockContribution> configuration) {
 		configuration.add(new EditBlockContribution(DataTypeConstants.DATE, "datefield/AppPropertyEditBlocks", "date"));
 		configuration.add(new EditBlockContribution(DataTypeConstants.CALENDAR, "datefield/AppPropertyEditBlocks", "calendar"));
 
