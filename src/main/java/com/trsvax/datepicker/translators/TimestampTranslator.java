@@ -15,12 +15,12 @@ import org.apache.tapestry5.services.FormSupport;
 public class TimestampTranslator extends AbstractTranslator<Timestamp> {
 	
 	private final String formatString;
-	private final String dataName;
+	private final Object[] attributes;
 	
-	public TimestampTranslator(String format, String dataName, String messageKey) {
-		super("TimestampTranslator(" + format + ")",Timestamp.class,messageKey);
+	public TimestampTranslator(String name, String format, String messageKey, String... attributes) {
+		super(name != null ? name : "TimestampTranslator(" + format + ")",Timestamp.class,messageKey);
 		formatString = format;
-		this.dataName = dataName;
+		this.attributes = attributes;
 	}
 
 	public String toClient(Timestamp value) {
@@ -42,7 +42,7 @@ public class TimestampTranslator extends AbstractTranslator<Timestamp> {
 	}
 
 	public void render(Field field, String message, MarkupWriter writer, FormSupport formSupport) {
-		writer.attributes(dataName,formatString);
+		writer.attributes(attributes);
 	}		
 
 }

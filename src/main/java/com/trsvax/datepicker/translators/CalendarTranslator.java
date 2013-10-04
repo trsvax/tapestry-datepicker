@@ -16,12 +16,12 @@ import org.apache.tapestry5.services.FormSupport;
 public class CalendarTranslator extends AbstractTranslator<Calendar> {
 	
 	private final String formatString;
-	private final String dataName;
+	private final Object[] attributes;
 	
-	public CalendarTranslator(String format, String dataName, String messageKey) {
-		super("CalendarTranslator(" + format + ")",Calendar.class,messageKey);
+	public CalendarTranslator(String name, String format, String messageKey, String... attributes) {
+		super("name != null ? name : CalendarTranslator(" + format + ")",Calendar.class,messageKey);
 		formatString = format;
-		this.dataName = dataName;
+		this.attributes = attributes;
 	}
 
 
@@ -49,7 +49,7 @@ public class CalendarTranslator extends AbstractTranslator<Calendar> {
 
 
 	public void render(Field field, String message, MarkupWriter writer, FormSupport formSupport) {
-		writer.attributes(dataName,formatString);
+		writer.attributes(attributes);
 	}		
 
 }

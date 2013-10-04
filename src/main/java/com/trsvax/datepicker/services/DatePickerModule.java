@@ -19,14 +19,14 @@ import com.trsvax.datepicker.translators.TimestampTranslator;
 public class DatePickerModule {
 	
 	public static void contributeTranslatorSource(MappedConfiguration<Class, Translator> configuration){
-		configuration.add(Date.class, new DateTranslator("MM-dd-yyyy","mm/dd/yy","data-date-format","date"));
-		configuration.add(Timestamp.class, new TimestampTranslator("MM/dd/yyyy","data-date-format","timestamp"));
-		configuration.add(Calendar.class, new CalendarTranslator("MM/dd/yyyy","data-date-format","calendar"));
+		configuration.add(Date.class, new DateTranslator("slowDate","MM-dd-yyyy","date","data-date-format","mm-dd-yy","data-duration","slow"));
+		configuration.add(Timestamp.class, new TimestampTranslator(null,"MM/dd/yyyy","timestamp","data-date-format","mm/dd/yy"));
+		configuration.add(Calendar.class, new CalendarTranslator(null,"MM/dd/yyyy","calendar","data-date-format","mm/dd/yy"));
 	}
 	
 	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration){
 		
-		Translator<?> translator = new DateTranslator("MM-dd-yyyy","mm-dd-yy","date-format","date");
+		Translator<?> translator = new DateTranslator(null,"MM/dd/yyyy","date","data-date-format","mm/dd/yy");
 		configuration.add(translator.getName(), translator);
 	}
 	

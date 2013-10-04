@@ -9,6 +9,7 @@ import org.apache.tapestry5.Field;
 import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.ValidationException;
 import org.apache.tapestry5.ValidationTracker;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.internal.translator.AbstractTranslator;
 import org.apache.tapestry5.services.Environment;
 import org.apache.tapestry5.services.FormSupport;
@@ -16,14 +17,12 @@ import org.apache.tapestry5.services.FormSupport;
 public class DateTranslator extends AbstractTranslator<Date> {
 
 	private final String formatString;
-	private final String dataName;
-	private final String clientFormat;
+	private final Object[] attributes;
 	
-	public DateTranslator(String format, String clientFormat ,String dataName, String messageKey) {
-		super("DateFormat(" + format + ")",Date.class,messageKey);
+	public DateTranslator(String name, String format, String messageKey, String... attributes) {
+		super(name != null ? name : "DateFormat(" + format + ")",Date.class,messageKey);
 		formatString = format;
-		this.dataName = dataName;
-		this.clientFormat = clientFormat;
+		this.attributes = attributes;
 	}
 
 	public String toClient(Date value) {
@@ -38,14 +37,26 @@ public class DateTranslator extends AbstractTranslator<Date> {
 		format.setLenient(false);
 		
 		Date date = format.parse(clientValue,parsePosition);
-		if ( parsePosition.getIndex() != clientValue.length() ) {
-			throw new ValidationException(String.format(message,formatString));			
+		if ( parsePosition.getIndex() == clientValue.length() ) {
+			return date;
 		} 
-		return date;
+		
+		parsePosition = new ParsePosition(0);
+		format = new SimpleDateFormat("yyyy-MM-dd");
+		format.setLenient(false);
+		
+		date = format.parse(clientValue,parsePosition);
+		if ( parsePosition.getIndex() == clientValue.length() ) {
+			return date;
+		}
+		
+		throw new ValidationException(String.format(message,clientValue));			
+
 	}
 
 	public void render(Field field, String message, MarkupWriter writer, FormSupport formSupport) {
-		writer.attributes(dataName,clientFormat);
+
+		writer.attributes(attributes);
 	}		
 }
 
