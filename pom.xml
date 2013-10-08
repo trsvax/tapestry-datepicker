@@ -111,6 +111,7 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
                 </configuration>
             </plugin>
 
+<!-- 
 			<plugin>
 				
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -124,7 +125,7 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
-           
+    -->        
 
             <!-- Enable auto-discovery of the Tapestry module -->
             <plugin>
