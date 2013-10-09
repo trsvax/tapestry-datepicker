@@ -25,11 +25,11 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import com.trsvax.datepicker.DatePickerConstants;
 
-@Import(library="classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.min.js"
+//@Import(library="classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.min.js"
 //stylesheet="classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.css"
-)
+//)
 @MixinAfter
-public class JQueryDatePIcker {
+public class JQueryDatePicker {
 	
 	@BindParameter
 	private Object value;

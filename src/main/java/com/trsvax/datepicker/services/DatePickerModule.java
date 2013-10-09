@@ -58,11 +58,9 @@ public class DatePickerModule {
 
 	}
 	
-    public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {
-    	
+    public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {   	
     	configuration.add(DatePickerConstants.JQUERY_LIBRARY,"classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.min.js");
     	configuration.add(DatePickerConstants.JQUERY_CSS,"classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.css");
-
     }
 
 }

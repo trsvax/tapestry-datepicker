@@ -22,7 +22,7 @@ You can also create your own datepicker component:
     public class DateField extends TextField {
 	
 	    @Mixin
-        private JQueryDatePIcker mixin;
+        private JQueryDatePicker mixin;
 
     }
 

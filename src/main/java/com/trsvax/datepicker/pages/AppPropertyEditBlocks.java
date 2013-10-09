@@ -9,7 +9,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.services.PropertyEditContext;
 
-import com.trsvax.datepicker.mixins.JQueryDatePIcker;
+import com.trsvax.datepicker.mixins.JQueryDatePicker;
 
 public class AppPropertyEditBlocks {
 	
@@ -17,7 +17,7 @@ public class AppPropertyEditBlocks {
 	@Environmental
 	private PropertyEditContext context;
 	
-	@MixinClasses(value=JQueryDatePIcker.class)
+	@MixinClasses(value=JQueryDatePicker.class)
 	@Component(parameters =
 		{ "value=context.propertyValue", "label=prop:context.label",
 			"translate=prop:dateTranslator", "validate=prop:dateValidator",
@@ -33,7 +33,7 @@ public class AppPropertyEditBlocks {
 		return context.getTranslator(dateField);
 	}
 	
-	@MixinClasses(value=JQueryDatePIcker.class)
+	@MixinClasses(value=JQueryDatePicker.class)
 	@Component(parameters =
 		{ "value=context.propertyValue", "label=prop:context.label",
 			"translate=prop:calendarTranslator", "validate=prop:calendarValidator",
