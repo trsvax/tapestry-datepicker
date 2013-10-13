@@ -300,6 +300,11 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
 </distributionManagement>
 -->
 
+	<issueManagement>
+	    <system>GitHub</system>
+	    <url>https://github.com/trsvax/tapestry-datepicker/issues</url>
+	</issueManagement>
+
     <properties>
         <tapestry-release-version>5.4-alpha-15</tapestry-release-version>
         <servlet-api-release-version>2.5</servlet-api-release-version>
