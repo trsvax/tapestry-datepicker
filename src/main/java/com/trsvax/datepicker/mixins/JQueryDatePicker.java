@@ -81,8 +81,12 @@ public class JQueryDatePicker {
 		Element hidden =  element.elementBefore("input", 
 				"value",formatedDate,"type","hidden","class","form-control","id",clientID);
 		javaScriptSupport.require("datepicker/datepicker").with(new JSONObject("id", id, "clientID", clientID,"formID",formID));
-		javaScriptSupport.importStylesheet(assetSource.getExpandedAsset(css));
-		javaScriptSupport.importJavaScriptLibrary(assetSource.getExpandedAsset(javascript));
+		if ( ! DatePickerConstants.NULL.equals(css)) {
+			javaScriptSupport.importStylesheet(assetSource.getExpandedAsset(css));
+		}
+		if ( ! DatePickerConstants.NULL.equals(javascript)) {
+			javaScriptSupport.importJavaScriptLibrary(assetSource.getExpandedAsset(javascript));
+		}
 	}
 	
 }
