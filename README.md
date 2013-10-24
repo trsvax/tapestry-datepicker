@@ -84,7 +84,7 @@ It's now possible to override the javascript/css files also. The default configu
     	configuration.add(DatePickerConstants.JQUERY_CSS,"classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.css");
     }
     
-If you've already included jQueryUI or have css you can set the values to DatePickerConstans.NULL.
+If you've already included jQueryUI or have css you can set the values to DatePickerConstants.NULL.
 
 The datepicker now includes support for browsers that support html5 type="date". If it seems the browser has native
 support it is used instead of the javascript datepicker. Currently this feature is experimental and may change.
