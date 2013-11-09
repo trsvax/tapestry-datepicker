@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html t:type="layout" title="literal:Datepicker"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      Datepicker
+      
+      <t:form>
+      	<t:textField value="date" type="date"/>
+      </t:form>
+  </html>

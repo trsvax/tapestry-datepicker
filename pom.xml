@@ -66,6 +66,13 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
             <version>${tapestry-release-version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.7.2</version>
+		    <scope>test</scope>
+		</dependency>
 
         <!-- Provided by the servlet container, but sometimes referenced in the application
        code. -->
