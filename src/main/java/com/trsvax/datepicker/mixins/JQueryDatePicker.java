@@ -10,12 +10,10 @@ import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.annotations.AfterRender;
 import org.apache.tapestry5.annotations.BeginRender;
 import org.apache.tapestry5.annotations.BindParameter;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.MixinAfter;
 import org.apache.tapestry5.annotations.Path;
 import org.apache.tapestry5.dom.Element;
-import org.apache.tapestry5.ioc.Resource;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 import org.apache.tapestry5.json.JSONObject;
@@ -78,7 +76,7 @@ public class JQueryDatePicker {
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			formatedDate = format.format(date);
 		}
-		Element hidden =  element.elementBefore("input", 
+		element.elementBefore("input", 
 				"value",formatedDate,"type","hidden","class","form-control","id",clientID);
 		javaScriptSupport.require("datepicker/datepicker").with(new JSONObject("id", id, "clientID", clientID,"formID",formID));
 		if ( ! DatePickerConstants.NULL.equals(css)) {

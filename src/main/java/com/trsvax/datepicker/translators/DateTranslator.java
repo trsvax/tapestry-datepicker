@@ -8,10 +8,7 @@ import java.util.Date;
 import org.apache.tapestry5.Field;
 import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.ValidationException;
-import org.apache.tapestry5.ValidationTracker;
-import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.internal.translator.AbstractTranslator;
-import org.apache.tapestry5.services.Environment;
 import org.apache.tapestry5.services.FormSupport;
 
 public class DateTranslator extends AbstractTranslator<Date> {

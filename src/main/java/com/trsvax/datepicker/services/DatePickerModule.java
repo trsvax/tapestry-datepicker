@@ -4,9 +4,7 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.Translator;
-import org.apache.tapestry5.annotations.Path;
 import org.apache.tapestry5.beaneditor.DataTypeConstants;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
@@ -21,7 +19,7 @@ import com.trsvax.datepicker.translators.TimestampTranslator;
 
 public class DatePickerModule {
 	
-	public static void contributeTranslatorSource(MappedConfiguration<Class, Translator> configuration){
+	public static void contributeTranslatorSource(@SuppressWarnings("rawtypes") MappedConfiguration<Class, Translator> configuration){
 		configuration.add(Date.class, 
 				new DateTranslator("Date(MM/dd/yyyy)","MM/dd/yyyy","date-translator",
 				"data-date-format","mm/dd/yy",
@@ -38,7 +36,7 @@ public class DatePickerModule {
 		
 	}
 	
-	public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration){
+	public static void contributeTranslatorAlternatesSource(@SuppressWarnings("rawtypes") MappedConfiguration<String, Translator> configuration){
 		
 		Translator<?> translator = 
 				new DateTranslator("Date(MM-dd-yyyy)","MM-dd-yyyy","date-translator",
