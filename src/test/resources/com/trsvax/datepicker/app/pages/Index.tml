@@ -7,4 +7,8 @@
       <t:form>
       	<t:textField value="date" type="date"/>
       </t:form>
+      
+      
+      <h3>BeanEdit</h3>
+      <t:beaneditform object="this"/>
   </html>
