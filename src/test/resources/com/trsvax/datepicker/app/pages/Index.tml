@@ -2,8 +2,9 @@
 <html t:type="layout" title="literal:Datepicker"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter">
-      Datepicker
+      <h2>Datepicker</h2>
       
+      <h3>Form</h3>
       <t:form>
       	<t:textField value="date" type="date"/>
       </t:form>
