@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.tapestry5.Asset;
-import org.apache.tapestry5.ClientElement;
 import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.annotations.AfterRender;
 import org.apache.tapestry5.annotations.BeginRender;
@@ -13,6 +12,7 @@ import org.apache.tapestry5.annotations.BindParameter;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.MixinAfter;
 import org.apache.tapestry5.annotations.Path;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.dom.Element;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
@@ -52,7 +52,7 @@ public class JQueryDatePicker {
 	private JavaScriptSupport javaScriptSupport;
 
 	@InjectContainer
-	private ClientElement clientElement;
+	private TextField clientElement;
 	
 	@Inject
 	private FormSupport formSupport;
@@ -76,8 +76,11 @@ public class JQueryDatePicker {
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			formatedDate = format.format(date);
 		}
-		element.elementBefore("input", 
+		Element dateField = element.elementBefore("input", 
 				"value",formatedDate,"type","hidden","class","form-control","id",clientID);
+		 if (clientElement.isDisabled()) {
+			 dateField.attribute("disabled", "disabled");
+		}
 		javaScriptSupport.require("datepicker/datepicker").with(new JSONObject("id", id, "clientID", clientID,"formID",formID));
 		if ( ! DatePickerConstants.NULL.equals(css)) {
 			javaScriptSupport.importStylesheet(assetSource.getExpandedAsset(css));
