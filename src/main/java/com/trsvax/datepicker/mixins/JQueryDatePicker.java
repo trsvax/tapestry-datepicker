@@ -16,6 +16,7 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.dom.Element;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
+import org.apache.tapestry5.ioc.services.TypeCoercer;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.AssetSource;
 import org.apache.tapestry5.services.FormSupport;
@@ -23,9 +24,6 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import com.trsvax.datepicker.DatePickerConstants;
 
-//@Import(library="classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.min.js"
-//stylesheet="classpath:/META-INF/assets/datefield/jquery-ui-1.10.3.custom.css"
-//)
 @MixinAfter
 public class JQueryDatePicker {
 	
@@ -46,8 +44,7 @@ public class JQueryDatePicker {
     @Inject
     @Symbol(DatePickerConstants.JQUERY_LIBRARY)
     private String javascript;
-    
-    
+       
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
 
@@ -56,6 +53,9 @@ public class JQueryDatePicker {
 	
 	@Inject
 	private FormSupport formSupport;
+	
+	@Inject
+    private TypeCoercer coercer;
 	
 	private Element element;
 	
@@ -70,7 +70,7 @@ public class JQueryDatePicker {
 		String id = clientElement.getClientId();
 		String clientID = javaScriptSupport.allocateClientId(id);
 		String formID = formSupport.getClientId();
-		Date date = (Date) value;
+		Date date = coercer.coerce(value, Date.class);
 		String formatedDate = "";
 		if ( date != null ) {
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -78,7 +78,7 @@ public class JQueryDatePicker {
 		}
 		Element dateField = element.elementBefore("input", 
 				"value",formatedDate,"type","hidden","class","form-control","id",clientID);
-		 if (clientElement.isDisabled()) {
+		if (clientElement.isDisabled()) {
 			 dateField.attribute("disabled", "disabled");
 		}
 		javaScriptSupport.require("datepicker/datepicker").with(new JSONObject("id", id, "clientID", clientID,"formID",formID));
