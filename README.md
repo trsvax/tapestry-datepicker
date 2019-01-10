@@ -1,3 +1,6 @@
+No Longer maintained moving to node/graphql/react
+---
+
 tapestry-datepicker
 ===================
 
